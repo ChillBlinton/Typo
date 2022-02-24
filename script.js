@@ -1,11 +1,12 @@
 let $upKey = $("#keyboard-upper-container")
 let $lowKey = $("#keyboard-lower-container")
-let sentencesArr = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
-
-let sentences= 0;
-let letter= 0;
-let currentSentence = sentencesArr[sentences];
-let currentLetter = sentencesArr[letter]
+let $sentencesArr = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
+let $highlight = $("#yellow-block");
+let $highlightTarget = 0
+let $sentence= $sentencesArr[0];
+let $letter= $sentence.substring(0, 1);
+// let currentSentence = sentencesArr[sentence];
+// let currentLetter = sentencesArr[letter]
 
 //toggling shift key 
 $(document).keydown(function (keyvent1) {
@@ -31,15 +32,24 @@ $(document).keypress(function (keyvent3) {
 });
 
 //sentence displays
-if (letter < currentSentence.length) {
-    letter + 1
-} else {
-    if (sentences < sentencesArr.length) {
-        sentences++
-        $("#sentence").text(currentSentence)
-        $("#feedback").empty();
+// if (letter < currentSentence.length) {
+//     letter++
+// } else {
+//     if (sentence < sentencesArr.length) {
+//         sentence++
+//         $("#sentence").text(currentSentence)
+//         $("#feedback").empty();
+//     }
+// }
+//rework
+$("#sentence").text($sentence);
+$("#target-letter").text($letter);
+$(document).keypress(function (keyvent3) {
+    if (e.which == $sentencesArr[0].charCodeAt(0)) {
+        $highlightTargett += 20;
+        $($highlight).css("margin-left", $highlightTarget + "px");
     }
-}
+});
 
 
 //****DO NOT CAPS LOCK OR IT WILL TAKE YOU AN HOUR TO FIGURE OUT WHY THINGS ARENT LOGGING> JEEZ */
