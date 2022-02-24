@@ -45,8 +45,8 @@ $(document).keypress(function (keyvent3) {
 $("#sentence").text($sentence);
 $("#target-letter").text($letter);
 $(document).keypress(function (keyvent3) {
-    if (e.which == $sentencesArr[0].charCodeAt(0)) {
-        $highlightTargett += 20;
+    if (keyvent3.which == $sentencesArr[0].charCodeAt(0)) {
+        $highlightTarget += 20;
         $($highlight).css("margin-left", $highlightTarget + "px");
     }
 });
