@@ -5,17 +5,15 @@ let $lowKey = $("#keyboard-lower-container")
 $(document).keydown(function (event) {
     if (event.which === 16) { //uopkeys
         $($upKey).css("display", "block");
-        $($lowKey).css("display", "block");
+        $($lowKey).css("display", "none");
         $(document).keyup(function (event2) {
             if (event2.which === 16) { //uopkeys
-                $($upKey).css("display", "block");
+                $($upKey).css("display", "none");
                 $($lowKey).css("display", "block");
             }
         });
     }
-}
-
-)
+});
 
 
 
