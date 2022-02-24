@@ -2,9 +2,11 @@ let $upKey = $("#keyboard-upper-container")
 let $lowKey = $("#keyboard-lower-container")
 let $sentencesArr = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
 let $highlight = $("#yellow-block");
-let $highlightTarget = 0
-let $sentence= $sentencesArr[0];
-let $letter= $sentence.substring(0, 1);
+let $highlightTarget = 0;
+let $letterCount = 0;
+let $sentenceCount = 0;
+let $sentence= $sentencesArr[$sentenceCount];
+let $letter= $sentence.substring($letterCount, $letterCount + 1);
 // let currentSentence = sentencesArr[sentence];
 // let currentLetter = sentencesArr[letter]
 
@@ -45,11 +47,15 @@ $(document).keypress(function (keyvent3) {
 $("#sentence").text($sentence);
 $("#target-letter").text($letter);
 $(document).keypress(function (keyvent3) {
-    if (keyvent3.which == $sentencesArr[0].charCodeAt(0)) {
-        $highlightTarget += 20;
+    if (keyvent3.which == $sentencesArr[$sentenceCount].charCodeAt($letterCount)) {
+        $highlightTarget += 15;
         $($highlight).css("margin-left", $highlightTarget + "px");
-    }
+        $letterCount++;
+        $("target-letter").text($letter);
+    };//highlight changes but does not display next letter
 });
+
+
 
 
 //****DO NOT CAPS LOCK OR IT WILL TAKE YOU AN HOUR TO FIGURE OUT WHY THINGS ARENT LOGGING> JEEZ */
