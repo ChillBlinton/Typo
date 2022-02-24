@@ -42,5 +42,7 @@
 }
 
 #keyboard-upper-container {
-  display:none;
+  display:none; /*hide shift*/
 }
+
+
